@@ -31,7 +31,7 @@ function Picflip({imageurl, vendors, total, check}){
                         )}
 
                         {isContentVisible && (
-                            <div className={`${contentClasses} flex relative w-full h-full mt-0 rounded-md bg-[#212134] bg-opacity-30 justify-center items-center border border-teal-500`} onClick={toggleContent}>
+                            <div className={`${contentClasses} flex relative w-full mt-0 rounded-md bg-[#212134] bg-opacity-30 justify-center items-center`} onClick={toggleContent}>
                                 <p className=" text-teal-500 font-sans font-extrabold text-4xl absolute top-1 left-15">
                                     {check ? "Total Vendors" : "Total Files"}
                                 </p>

@@ -102,10 +102,10 @@ function Home() {
                 <button type="submit" className="w-0.5/6 bg-teal-500 text-white justify-center ml-6 hover:h-12 ">Add Vendor</button>
             </form>
                 <div className="flex items-center w-full h-48 mt-8">
-                    <div className="flex w-1/3 h-full text-white rounded-lg m-4 bg-[#212134]">
+                    <div className="flex w-1/3 h-full text-white rounded-lg m-4 bg-[#212134] border border-teal-500">
                         <Picflip imageurl={imageurl} vendors={vendors} total={total} check={check} />
                     </div>
-                    <div className="flex w-1/3 h-full text-white rounded-lg m-4 bg-[#212134]">
+                    <div className="flex w-1/3 h-full text-white rounded-lg m-4 bg-[#212134] border border-teal-500">
                         <Picflip imageurl={imageurl} vendors={vendors} total={total} check={!check} />
                     </div>
                     <div className="flex w-1/3 h-full text-white rounded-lg m-4 bg-[#212134] border border-teal-500">
