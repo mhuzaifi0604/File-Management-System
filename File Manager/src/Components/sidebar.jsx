@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import{faGauge, faFolder, faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
+import { library } from "@fortawesome/fontawesome-svg-core";
+library.add(faGauge, faFolder, faRightFromBracket);
 function SideBar() {
 
     const location = useLocation().pathname;
@@ -24,18 +28,21 @@ function SideBar() {
             </div>
             <div className="flex h-96 mt-8 justify-center">
                 <ol className="justify-center items-center mt-6 p-6 text-center">
-                    <button onClick={handledashboard} className="w-full h-12 mb-4">
+                    <button onClick={handledashboard} className="w-full h-12 mb-4 overflow-hidden">
                         <li className={location === '/dashboard' ? "text-teal-500 underline font-serif font-extrabold text-xl mb-12"
                             : "text-black font-serif font-extrabold text-xl mb-12 hover:underline hover:text-white"}>
-                            Dashboard
+                            <FontAwesomeIcon icon={faGauge} />&nbsp;Dashboard
                         </li>
                     </button>
                     <button onClick={handlefiles} className="w-full h-12 mb-4" ><li className={location === '/file-manager' ? "text-teal-500 underline font-serif font-extrabold text-xl mb-12"
                         : "text-black font-serif font-extrabold text-xl mb-12 hover:text-white hover:underline"}>
-                        File Manager
+                        <FontAwesomeIcon icon={faFolder} />&nbsp;File Manager
                     </li>
                     </button>
-                    <button onClick={handlelogout} className="w-full h-12 mb-4"><li className="text-black font-serif font-extrabold text-xl mb-12 hover:underline hover:text-white">LogOut</li></button>
+                    <button onClick={handlelogout} className="w-full h-12 mb-4"><li className="text-black font-serif font-extrabold text-xl mb-12 hover:underline hover:text-white">
+                    <FontAwesomeIcon icon={faRightFromBracket} />&nbsp;LogOut
+                    </li>
+                    </button>
                 </ol>
             </div>
             <div className="flex h-20 mt-6 p-6">
