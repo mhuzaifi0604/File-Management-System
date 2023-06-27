@@ -19,8 +19,8 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     formValidation();
-    if(!error){
-        navigate('/dashboard')
+    if (!error) {
+      navigate('/dashboard')
     }
   };
 
@@ -59,7 +59,7 @@ function Login() {
   return (
 
     <div className='flex flex-grow flex-shrink h-screen w-screen border-2 border-pink-950'>
-        <div className='flex flex-grow basis-1/2 justify-center items-center overflow-auto bg-[#1b1b5b] bg-opacity-30'>
+      <div className='flex flex-grow basis-1/2 justify-center items-center overflow-auto bg-[#1b1b5b] bg-opacity-30'>
         <form onSubmit={handleSubmit} className="m-5 p-6 w-4/5 border-2 border-blue-900 bg-[#170c27] backdrop-filter backdrop-blur-md shadow-lg shadow-teal-100 rounded-md">
           <div className='flex justify-center items-center'>
             <h2 className="text-3xl mb-2 font-serif text-justify italic font-semibold text-white text-opacity-90" >Nice to See you again</h2>
@@ -105,12 +105,12 @@ function Login() {
               Forgot Password?
             </a>
           </div>
-            <button
-              type="submit"
-              className="bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-md transition duration-300"
-            >
-              Sign in
-            </button>
+          <button
+            type="submit"
+            className="bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-md transition duration-300"
+          >
+            Sign in
+          </button>
           <p className='text-center'>
             <a href="#!" className="text-teal-500 text-sm">
               Don't have an account? Sign up

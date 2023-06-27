@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import{faGauge, faFolder, faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGauge, faFolder, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faGauge, faFolder, faRightFromBracket);
 function SideBar() {
 
     const location = useLocation().pathname;
     const navigate = useNavigate();
-    const handlefiles = () =>{
+    const handlefiles = () => {
         navigate('/file-manager');
     }
-    const handledashboard = () =>{
+    const handledashboard = () => {
         navigate('/dashboard');
     }
     const handlelogout = () => {
@@ -40,7 +40,7 @@ function SideBar() {
                     </li>
                     </button>
                     <button onClick={handlelogout} className="w-full h-12 mb-4"><li className="text-black font-serif font-extrabold text-xl mb-12 hover:underline hover:text-white">
-                    <FontAwesomeIcon icon={faRightFromBracket} />&nbsp;LogOut
+                        <FontAwesomeIcon icon={faRightFromBracket} />&nbsp;LogOut
                     </li>
                     </button>
                 </ol>

@@ -1,10 +1,11 @@
 import { useState } from "react";
+import FileUpload from "./Upload";
 
 function File_Manager() {
     return(
         <>
         <div className="flex justify-center items-center h-full w-full">
-            Welcome To File Manager
+            <FileUpload/>
         </div>
         </>
     )
