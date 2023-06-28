@@ -1,25 +1,5 @@
 # File Management System
-This application is based on the concept of uploading your files to a central database like application. Different Features for user attraction and ease have been entered
-# A Few Features:<br>
-* Format & Password Validation for Login Page
-* Total Vendors & Uploaded Files on the File Management system
-* Graph representing vendors and their uploaded files
-* Vendor ratings for the file Management System
-* File upload feature (an obvious one)
-* Delete Feature for each file
-* Limited no. of results for a single page to prevent a mess on the interface
-* Search by Name feature implemented for searching through files.
-# Technologies Learned & Implemented
-Following are the new react-vite techmologies that i implemented in this project. If I may, these have made my programming of this application easier by 90%.<br>
-* Outlets in Routers<br>
-*     Login page is the root page.
-*     All other i.e., dashboard & file manager are sub routes or childs of root page implemented using outlets.
-* React DropZone
-*     React dropzone is you can say the easy way out for upload feature i.e., upload from your computer.
-* React Pagination
-*     If you do not want to create a mess on your site, then it is only sensible to arrange data on multiple pages.
-*     I implemented the pagination feature for uploaded files i.e., only 8 items on single page.
-# Lets have a look at the Site itself.
+ This application is responsible for managing, uploading and deleting files. React pagination has also been used.
 
 !st of all lets have a look at the login page for the application. For the login page i have implemented following checks:
 * If there is an '@' missing in the email address then the form will not get submit and will ask the user for the correct email address format. similar will be the case for the '.' in the email address for TDLs.
