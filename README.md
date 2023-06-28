@@ -35,3 +35,5 @@ Following are the features implemented in dashboard.
 <img src="./pics/Screenshot_2.png" alt="gui"><br>
 <br> Now you can click on pics to check the total vendors and their file and you can click on view rating button to see the rating of corresponding vendors.<br><br>
 <img src="./pics/Screenshot_3.png" alt="gui"><br>
+<br> Below you can see that i am about to add a vendor named NUST with files  equals 20.<br<br>
+<img src="./pics/Screenshot_4.png" alt="gui"><br>
