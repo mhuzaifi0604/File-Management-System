@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Picflip from "./picflip";
 import { Line, Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
+import 'animate.css';
 
 function Home() {
     const [vendors, setvendors] = useState(5);
@@ -11,6 +12,25 @@ function Home() {
     const [total, settotal] = useState(0);
     const [check, setcheck] = useState(true);
     const imageurl = 'https://www.shutterstock.com/image-photo/vendor-concept-wooden-letters-on-260nw-709623133.jpg';
+    const [rating, setrating] = useState([]);
+    const [animate, setAnimate] = useState(false);
+
+    useEffect(() => {
+      setAnimate(true);
+    }, []);
+
+    const generateRating = () => {
+        const min = 1;
+        const max = 5;
+        const ratings = Math.floor(Math.random() * (max - min + 1)) + min;
+        return ratings;
+      };
+    
+      const handleRatingClick = (index) => {
+        const updatedRatings = [...rating];
+        updatedRatings[index] = generateRating();
+        setrating(updatedRatings);
+      };
 
     useEffect(() => {
         let temp = 0;
@@ -99,7 +119,7 @@ function Home() {
                     <input type="text" name='vendor' placeholder="Enter New Vendor" className="text-white w-2/6 border-2 border-teal-500 bg-transparent p-1 m-2 rounded-full focus:bg-[#212134]" />
                     <label className=" text-white font-serif italic">Files:&nbsp;</label>
                     <input type="number" name='Files' placeholder="Enter No. of files" className="text-white w-2/6 border-2 border-teal-500 bg-transparent p-1 m-2 rounded-full focus:bg-[#212134]" />
-                    <button type="submit" className="w-0.5/6 bg-teal-500 text-white justify-center ml-6 hover:h-12 ">Add Vendor</button>
+                    <button type="submit" className="w-0.5/6 bg-[#1a1a1a] text-teal-500 justify-center ml-6 hover:h-12 hover:bg-teal-500 hover:text-black ">Add Vendor</button>
                 </form>
                 <div className="flex items-center w-full h-48 mt-8">
                     <div className="flex w-1/3 h-full text-white rounded-lg m-4 bg-[#212134] border border-teal-500">
@@ -117,6 +137,22 @@ function Home() {
                     <div className="flex justify-center items-center w-1/3 h-full text-white m-4 text-sm">▶ Click To Check Total Files</div>
                     <div className="flex justify-center items-center w-1/3 h-full text-white m-4 text-sm">▶ Graph: Vendors & Files</div>
                 </div>
+                <div className="flex justify-center items-center h-full w-full border border-teal-500 overflow-y-auto p-2">
+      <ul className="w-5/6 relative">
+        {names.map((vendor_name, index) => (
+          <li key={index} className={`flex items-center w-full h-12 bg-[#212134] border border-teal-500 m-2 p-2 rounded-full font-bold relative animate__animated ${animate ? "animate__slideInLeft" : ""}`}>
+            <span className='flex items-center justify-center'>{index+1} - {vendor_name}
+              {rating[index] !== undefined ? (
+                <span className="absolute right-4">{'⭐'.repeat(rating[index])}</span>
+              ) : (
+                <button onClick={() => handleRatingClick(index)} className="p-2 m-2 h-10 rounded-lg text-sm bg-[#1a1a1a] text-teal-500 hover:bg-teal-500 hover:text-black absolute right-4">View Rating</button>
+              )}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
             </div>
         </>
     )

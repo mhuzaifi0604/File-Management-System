@@ -18,7 +18,7 @@ function Picflip({ imageurl, vendors, total, check }) {
     const contentClasses = classNames('mt-4', {
         'hidden': !isContentVisible,
     });
-    console.log("imageurl: ", imageurl);
+    
     return (
         <>
             {!isContentVisible && (

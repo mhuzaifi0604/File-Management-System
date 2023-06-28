@@ -4,9 +4,10 @@ import FileUpload from "./Upload";
 function File_Manager() {
     return(
         <>
-        <div className="flex justify-center items-center h-full w-full">
+        <div className="flex flex-col justify-center items-center h-full w-full">
             <FileUpload/>
         </div>
+        
         </>
     )
 }

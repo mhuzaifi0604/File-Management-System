@@ -58,7 +58,7 @@ function Login() {
 
   return (
 
-    <div className='flex flex-grow flex-shrink h-screen w-screen border-2 border-pink-950'>
+    <div className='flex flex-grow flex-shrink h-screen w-screen'>
       <div className='flex flex-grow basis-1/2 justify-center items-center overflow-auto bg-[#1b1b5b] bg-opacity-30'>
         <form onSubmit={handleSubmit} className="m-5 p-6 w-4/5 border-2 border-blue-900 bg-[#170c27] backdrop-filter backdrop-blur-md shadow-lg shadow-teal-100 rounded-md">
           <div className='flex justify-center items-center'>
