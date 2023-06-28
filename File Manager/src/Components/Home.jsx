@@ -16,7 +16,7 @@ function Home() {
     const [animate, setAnimate] = useState(false);
 
     useEffect(() => {
-      setAnimate(true);
+        setAnimate(true);
     }, []);
 
     const generateRating = () => {
@@ -24,13 +24,13 @@ function Home() {
         const max = 5;
         const ratings = Math.floor(Math.random() * (max - min + 1)) + min;
         return ratings;
-      };
-    
-      const handleRatingClick = (index) => {
+    };
+
+    const handleRatingClick = (index) => {
         const updatedRatings = [...rating];
         updatedRatings[index] = generateRating();
         setrating(updatedRatings);
-      };
+    };
 
     useEffect(() => {
         let temp = 0;
@@ -137,21 +137,21 @@ function Home() {
                     <div className="flex justify-center items-center w-1/3 h-full text-white m-4 text-sm">▶ Click To Check Total Files</div>
                     <div className="flex justify-center items-center w-1/3 h-full text-white m-4 text-sm">▶ Graph: Vendors & Files</div>
                 </div>
-                <div className="flex justify-center items-center h-full w-full border border-teal-500 overflow-y-auto p-2">
-      <ul className="w-5/6 relative">
-        {names.map((vendor_name, index) => (
-          <li key={index} className={`flex items-center w-full h-12 bg-[#212134] border border-teal-500 m-2 p-2 rounded-full font-bold relative animate__animated ${animate ? "animate__slideInLeft" : ""}`}>
-            <span className='flex items-center justify-center'>{index+1} - {vendor_name}
-              {rating[index] !== undefined ? (
-                <span className="absolute right-4">{'⭐'.repeat(rating[index])}</span>
-              ) : (
-                <button onClick={() => handleRatingClick(index)} className="p-2 m-2 h-10 rounded-lg text-sm bg-[#1a1a1a] text-teal-500 hover:bg-teal-500 hover:text-black absolute right-4">View Rating</button>
-              )}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
+                <div className="flex justify-center items-center h-full w-full overflow-y-auto p-2">
+                    <ul className="w-5/6 relative">
+                        {names.map((vendor_name, index) => (
+                            <li key={index} className={`flex items-center w-full h-12 bg-[#212134] border border-teal-500 m-2 p-2 rounded-full font-bold relative animate__animated ${animate ? "animate__slideInLeft" : ""}`}>
+                                <span className='flex items-center justify-center'>{index + 1} - {vendor_name}
+                                    {rating[index] !== undefined ? (
+                                        <span className="absolute right-4">{'⭐'.repeat(rating[index])}</span>
+                                    ) : (
+                                        <button onClick={() => handleRatingClick(index)} className="p-2 m-2 h-10 rounded-lg text-sm bg-[#1a1a1a] text-teal-500 hover:bg-teal-500 hover:text-black absolute right-4">View Rating</button>
+                                    )}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
             </div>
         </>
