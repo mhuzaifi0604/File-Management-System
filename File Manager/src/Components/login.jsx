@@ -15,36 +15,41 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [check, setcheck] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     formValidation();
-    if (!error) {
+    if (check) {
       navigate('/dashboard')
     }
   };
 
   const formValidation = () => {
-    if (email === '' && password === '') {
+    if (email.trim() === '' && password.trim() === '') {
       setError('The form is empty');
-    } else if (email === '') {
+    } else if (email.trim() === '') {
       setError('Please enter your email');
     } else if (email.indexOf('.') === -1) {
-      setError('Email format is missing a "."')
-    } else if (password === '') {
+      setError('Email format is missing a "."');
+    } else if (password.trim() === '') {
       setError('Please enter your password');
-    } else if (password.length < 8) {
-      setError('Password Length must be at least 8 characters')
+    } else if (password.trim().length < 8) {
+      setError('Password Length must be at least 8 characters');
     } else if (password === '        ') {
-      setError('You cannot set all characters of password == space.')
-    }
-    else {
+      setError('Password must not contain all 8 space characters.');
+    } else {
       getFormData();
       setError('');
       setEmail('');
       setPassword('');
+      setcheck(true);
     }
+    console.log('password: ', password, 'check: ', check);
   };
+  
+  
+  
 
   const getFormData = () => {
     const newData = {
@@ -90,10 +95,11 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
               className="border mt-2 border-blue-500 p-2 w-full rounded-md focus:outline-none focus:border-teal-500 bg-transparent text-white"
+              autoComplete='new-password'
             />
           </label>
 
-          {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+          {!check && <p className="text-red-500 text-sm mb-3">{error}</p>}
 
           <div className="flex items-center justify-between mb-5">
             <label htmlFor="check-box" className='appearance-none w-32 h16 rounded-md cursor-pointer'>
