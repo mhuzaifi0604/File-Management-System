@@ -17,15 +17,15 @@ function Login() {
   const navigate = useNavigate();
   const [check, setcheck] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    formValidation();
-    if (check) {
+  const handleSubmit = async(event) => {
+    await event.preventDefault();
+    // formValidation();
+    // if (check) {
       navigate('/dashboard')
-    }
+    // }
   };
 
-  const formValidation = () => {
+ const formValidation = async() => {
     if (email.trim() === '' && password.trim() === '') {
       setError('The form is empty');
     } else if (email.trim() === '') {
