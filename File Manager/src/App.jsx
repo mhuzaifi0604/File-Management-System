@@ -11,6 +11,7 @@ import Home from './Components/Home';
 import Login from './Components/login';
 import SideBar from './Components/sidebar';
 import File_Manager from './Components/filemanager';
+import FileUpload from './Components/Clone';
 function App() {
 
   return (
@@ -59,7 +60,7 @@ function File_Manager_Layout() {
       </div>
       <div className="flex flex-grow flex-shrink basis-4/5 justify-center bg-[#170c27]">
         <Routes>
-          <Route path='/' element={<File_Manager />} />
+          <Route path='/' element={<FileUpload />} />
         </Routes>
         <Outlet />
       </div>

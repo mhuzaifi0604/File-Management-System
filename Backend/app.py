@@ -33,7 +33,7 @@ def upload_file():
             files = { "file": (file.filename, f, "application/octet-stream") }
             headers = {
                 "accept": "application/json",
-                "x-apikey": "API KEY"
+                "x-apikey": VIRUSTOTAL_API_KEY
             }
             upload_response = requests.post(VIRUSTOTAL_UPLOAD_URL, files=files, headers=headers)
             upload_result = upload_response.json()
@@ -56,7 +56,7 @@ def upload_file():
                 
                 if analysis_status == "completed":
                     # Return the completed analysis result
-                    print("\n ========== .:: Analysis Result ::. ==========\n", analysis_result)
+                    print("\n ========== .:: Analysis Result ::. ==========\n[+] - Sending to Server")
                     return jsonify(analysis_result), 200
                 else:
                     # Sleep for a few seconds before checking again
