@@ -10,7 +10,7 @@ CORS(app)  # Enable CORS for all routes
 UPLOAD_FOLDER = 'upload'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Create the upload folder if it doesn't exist
 
-VIRUSTOTAL_API_KEY = "4619c3ceaadd364fe0753b9cd6857268feed52ebafbbcaa1b37f57bfe018b611"
+VIRUSTOTAL_API_KEY = ""
 VIRUSTOTAL_UPLOAD_URL = "https://www.virustotal.com/api/v3/files"
 VIRUSTOTAL_ANALYSIS_URL = "https://www.virustotal.com/api/v3/analyses/"
 
