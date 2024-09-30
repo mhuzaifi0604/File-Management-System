@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import file from './assets/file.jpg';
+import Stats from './Components/Stats';
 import {
   BrowserRouter as Router,
   Routes,
@@ -21,6 +22,7 @@ function App() {
           <Route path='/' element={<Login_Manager />} />
           <Route path='/dashboard' element={<Dashboard_Manager />} />
           <Route path='/file-manager' element={<File_Manager_Layout />} />
+          <Route path='/stats' element={<Stats />} />
         </Routes>
       </Router>
     </>

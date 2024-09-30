@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 import filescan from '../assets/filescan.png';
 import PacmanLoader from "react-spinners/PacmanLoader";
 import AOS from 'aos'
@@ -11,6 +12,7 @@ const Clone = () => {
   const [loading, setloading] = useState(false)
   const [data, setdata] = useState(null);
   const fileInputRef = useRef(null); // Ref for the hidden file input
+  const navigate = useNavigate()
 
   // Function to trigger file input click when the button is clicked
   const handleButtonClick = () => {
@@ -47,6 +49,7 @@ const Clone = () => {
       console.log("Response: ", data);
       setdata(data)
       setloading(false)
+      navigate('/stats', {state: {data: data}})
       // You can add any further action you want to perform after getting the response
     } catch (error) {
       console.error("Error uploading file:", error);
@@ -112,7 +115,7 @@ const Clone = () => {
             onChange={handleFileChange} // Automatically submit after selection
             style={{ display: 'none' }} // Hide the input
           />
-          {
+          {/* {
             loading ? <p className='w-[70%] text-center text-white font-sans animate-pulse'>Awaiting Analyses Results</p>
               : <div>
                 {data && (
@@ -121,9 +124,8 @@ const Clone = () => {
                       Analysis Results
                     </h2>
 
-                    {/* Glassmorphic Card */}
                     <div className="flex flex-col w-full bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-lg border border-opacity-30 border-white gap-4">
-                      {/* Display File Info */}
+                      
                       <p className="text-white">
                         <strong><i>File Hash (SHA-256) - </i></strong> {data.meta.file_info.sha256}
                       </p>
@@ -131,17 +133,13 @@ const Clone = () => {
                         <strong><i>Analysis Id - </i></strong> {data.data.id}
                       </p>
 
-                      {/* Convert Unix Timestamp to Readable Date */}
                       <p className="text-white">
                         <strong><i>TimeStamp - </i></strong> {new Date(data.data.attributes.date * 1000).toLocaleString()}
                       </p>
 
-                      {/* Display Total Vendors */}
                       <p className="text-white">
                         <strong><i>Total Vendors - </i></strong> {Object.keys(data.data.attributes.results).length}
                       </p>
-
-                      {/* Display Stats */}
                       <div className="flex flex-row justify-start items-center flex-wrap w-full gap-2">
                         {Object.entries(data.data.attributes.stats).map(([key, value], index) => (
                           <p className="text-white" key={index}>
@@ -155,7 +153,7 @@ const Clone = () => {
 
 
               </div>
-          }
+          } */}
         </div>
       }
 
